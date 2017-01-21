@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: recxes
+#
+#  id         :integer          not null, primary key
+#  order      :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class Recx < ApplicationRecord
   attr_accessor :content
 
