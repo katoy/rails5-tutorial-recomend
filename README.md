@@ -1,24 +1,23 @@
-# README
+## レコメンデーションの練習
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+```
+# ruby 2.4, rails 5 は事前にインストールして置く事
 
-Things you may want to cover:
+$ bundle install
+$ bin/rails db:environment:set RAILS_ENV=development
+$ rails db:migrate
+$ rails db:reset
 
-* Ruby version
+$ rails c
+> Recx.make.map {|x| x.content.name }
+=> => ["music-5", "book-9", "music-7", "movie-8", "music-8", "book-3", "book-7", "movie-3", "movie-7"]
 
-* System dependencies
+> Rec.make.map {|x| x.content.name }
+=> ["book-8", "movie-6", "music-3", "music-4", "book-4", "movie-5", "movie-2", "book-6", "music-6"]
+```
+make メソッドを実行する度に、異なる商品リストが得られていることが示されている。
 
-* Configuration
+Rec は polymorphic で、 Book, Music, Movie に結びつけている。
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Recx は virtual attribute で content メンバーを定義し、そこに Book, Music, Movie を結びつけている。
+![erd.png](erd.png)
