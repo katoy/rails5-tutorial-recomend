@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170121125348) do
+ActiveRecord::Schema.define(version: 20170122125348) do
 
   create_table "books", force: :cascade do |t|
     t.string   "name"
@@ -34,6 +34,15 @@ ActiveRecord::Schema.define(version: 20170121125348) do
     t.integer  "playtime"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "recfs", force: :cascade do |t|
+    t.integer  "order",        default: 1,     null: false
+    t.integer  "content_type", default: 1,     null: false
+    t.boolean  "fixed_flag",   default: false
+    t.integer  "fixed_id"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   create_table "recs", force: :cascade do |t|
